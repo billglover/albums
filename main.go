@@ -30,6 +30,7 @@ func run() error {
 
 	router.HandleFunc("/album/{id:[0-9]+}/", server.getAlbumHandler).Methods("GET")
 
+	fmt.Fprintln(os.Stdout, "Listenting on localhost:"+os.Getenv("PORT"))
 	return http.ListenAndServe("localhost:"+os.Getenv("PORT"), router)
 }
 
